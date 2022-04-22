@@ -1,4 +1,7 @@
 package art.com.retrofit
 
-class RetrofitViewModel {
+import androidx.lifecycle.ViewModel
+
+class RetrofitViewModel : ViewModel(){
+
 }
