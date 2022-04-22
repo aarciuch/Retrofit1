@@ -27,15 +27,15 @@ class RetrofitViewModel : ViewModel() {
     }
 
     private fun getMarsRealEstateProperties() {
-        //_response.value = "Set the Mars API Response here!"
+        _response.value = "Set the Mars API Response here!"
         MarsApi.retrofitService.getProperties().enqueue(
             object : Callback<String> {
                 override fun onResponse(call: Call<String>, response: Response<String>) {
-                    TODO("Not yet implemented")
+                    _response.value = response.body()
                 }
 
                 override fun onFailure(call: Call<String>, t: Throwable) {
-                    TODO("Not yet implemented")
+                    _response.value = "Failure: " + t.message
                 }
             }
         )
