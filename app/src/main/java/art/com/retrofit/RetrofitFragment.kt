@@ -30,7 +30,7 @@ class RetrofitFragment : Fragment() {
             inflater, R.layout.fragment_retrofit, container, false)
         retrofitViewModel = ViewModelProvider(this).get(RetrofitViewModel::class.java)
         binding.viewModel = retrofitViewModel
-        //binding.lifecycleOwner = viewLifecycleOwner
+        binding.lifecycleOwner = viewLifecycleOwner
 
         return binding.root
     }
