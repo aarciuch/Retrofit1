@@ -3,7 +3,9 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
-
+        <variable
+            name="viewModel"
+            type="art.com.retrofit.RetrofitViewModel" />
     </data>
 
     <LinearLayout
@@ -15,7 +17,8 @@
         <TextView
             android:id="@+id/tvText"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:text="@{viewModel.response}"/>
 
     </LinearLayout>
 </layout>
