@@ -1,2 +1,2 @@
 # Retrofit1
-<br> przykład retrofit - na podsatwie tutorilaa o Marsie
+<br> przykład retrofit - na podsatwie tutoriala o Marsie
