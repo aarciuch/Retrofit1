@@ -55,6 +55,9 @@ class RetrofitViewModel : ViewModel() {
             try {
                 val listResult = MarsApi.retrofitService.getProperties()
                 _response.value = "Success: ${listResult.size} Mars properties retrieved"
+                if (listResult.size > 0) {
+                    _property.value = listResult[0]
+                }
             } catch (e : Exception) {
                 _response.value = "Failure: ${e.message}"
             }
