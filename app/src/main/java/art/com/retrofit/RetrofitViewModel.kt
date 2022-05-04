@@ -22,6 +22,10 @@ class RetrofitViewModel : ViewModel() {
     val property : LiveData<MarsProperty>
         get() = _property
 
+    private val _properties = MutableLiveData<List<MarsProperty>>()
+    val properties : LiveData<List<MarsProperty>>
+        get() = _properties
+
     init {
         Log.i(RVM, "RetrofitViewModel init")
         getMarsRealEstateProperties()
@@ -54,6 +58,7 @@ class RetrofitViewModel : ViewModel() {
         viewModelScope.launch {
             try {
                 val listResult = MarsApi.retrofitService.getProperties()
+                _properties.value = MarsApi.retrofitService.getProperties()
                 _response.value = "Success: ${listResult.size} Mars properties retrieved"
                 if (listResult.size > 0) {
                     _property.value = listResult[0]

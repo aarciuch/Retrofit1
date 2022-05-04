@@ -5,34 +5,65 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
+
+        <variable
+            name="property"
+            type="art.com.retrofit.MarsProperty" />
+
         <variable
             name="viewModel"
             type="art.com.retrofit.RetrofitViewModel" />
+
     </data>
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:context=".retrofit.RetrofitFragment">
+        android:layout_height="wrap_content"
+        android:scrollbars="vertical">
 
-        <TextView
-            android:id="@+id/tvText"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@{viewModel.response}"/>
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            tools:context=".retrofit.RetrofitFragment">
 
-        <TextView
-            android:id="@+id/property"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@{viewModel.property.imgSrcUrl}"/>
+            <TextView
+                android:id="@+id/tvText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.response}"/>
 
-        <ImageView
-            android:id="@+id/photo"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            app:imageUrl="@{viewModel.property.imgSrcUrl}"/>
+            <TextView
+                android:id="@+id/property"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.property.imgSrcUrl}"/>
 
-    </LinearLayout>
+            <ImageView
+                android:id="@+id/photo1"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                app:imageUrl="@{viewModel.property.imgSrcUrl}"/>
+
+
+            <ImageView
+                android:id="@+id/photo"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                app:imageUrl="@{property.imgSrcUrl}"/>
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/photos_grid"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:clipToPadding="false"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:spanCount="2"
+                tools:itemCount="16"
+                tools:listitem="@layout/grid_view_item"
+                app:listData="@{viewModel.properties}"/>
+
+        </LinearLayout>
+    </ScrollView>
 </layout>
